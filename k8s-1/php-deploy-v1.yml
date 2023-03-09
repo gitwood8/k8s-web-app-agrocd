@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Namespace
 metadata:
   name: web-app
@@ -6,15 +6,15 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php-app
-  spacename: web-app
+  name: php-app-v1
+  namespace: web-app
   labels:
     owner: wood8
     app: php
 spec:
   replicas: 1
   selector:
-    matchlables: 
+    matchLabels: 
       owner: wood8
   template:
     metadata:
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata: 
   name: php-web-app-v1
-  spacename: web-app
+  namespace: web-app
 spec:
   selector:
     owner: wood8

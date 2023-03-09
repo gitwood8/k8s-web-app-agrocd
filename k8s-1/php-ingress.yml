@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: php-app-ingress
+  namespace: web-app
+spec:
+  rules:
+  - host: my-hph-web-app.com #need to resolve ip in /etc/hosts
+    http:
+      paths:
+      - path: /version1
+        pathType: Prefix
+        backend:
+          service:
+            name: php-web-app-v1
+            port:
+              number: 81
+      - path: /version2
+        pathType: Prefix
+        backend:
+          service:
+            name: php-web-app-v2
+            port:
+              number: 82
