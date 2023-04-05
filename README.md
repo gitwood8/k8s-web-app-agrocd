@@ -15,14 +15,14 @@ kubectl rollout undo deployment/php-app-v1 -n web-app --to-revision=3
 Dont forget to launch ingress controller pod before run an ingress:
 minikube enable addons ingress
 
------set default namespace -----  
-kubectl config set-context --current --namespace=web-app
+Set default namespace:   
+*kubectl config set-context --current --namespace=web-app*
 
 
 ----- k8s Dashboard deploy -----
 ==================================
-# Need to install for each Cluster.
-# Warning: The sample user created in the tutorial will have administrative privileges and is for educational purposes only.
+**Need to install for each Cluster.**
+**Warning: The sample user created in the tutorial will have administrative privileges and is for educational purposes only.**
 
 Doc: 
 https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
@@ -34,13 +34,13 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/cre
 
 ----- Apply yaml -----
 ----------------------
-
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
   namespace: kubernetes-dashboard
----apiVersion: rbac.authorization.k8s.io/v1
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-user
@@ -93,7 +93,8 @@ $output = "argocd.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $output
 
------ To get passworf for UI -----  
+----- To get passworf for UI -----
+----------------------
 argocd admin initial-password -n argocd
 
 minikube addons enable ingress
