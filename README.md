@@ -21,10 +21,15 @@ kubectl config set-context --current --namespace=web-app
 --------------------------------
 ----- k8s Dashboard deploy -----
 --------------------------------
+-Need to install for each Cluster.
+-Warning: The sample user created in the tutorial will have administrative privileges and is for educational purposes only.
+
+Doc: 
 https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
+Creating a sample user: 
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
 ----- Apply yaml -----
@@ -57,11 +62,13 @@ kubectl proxy
 ----- Open link and pust token -----
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
+
+
 --------------------------------
------ ARGO CD Deploy Windows -----
+----- Argo CD Deploy Windows -----
 --------------------------------
 
------ Execute -----
+----- Execute Installation -----
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 
@@ -74,8 +81,18 @@ localhost:8080
 
 To LogIn install CLI
 
-'''echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
-'''$url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"
-'''$output = "argocd.exe"
+echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
+$url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"
+$output = "argocd.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $output
+
+----- To get passworf for UI -----
+argocd admin initial-password -n argocd
+admin
+'''XZl84LXGCUu5RiuX'''
+
+
+
+minikube addons enable ingress
+kubectl apply -f Main.yml
