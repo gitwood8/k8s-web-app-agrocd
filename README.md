@@ -18,7 +18,7 @@ minikube enable addons ingress
 -----set default namespace -----
 kubectl config set-context --current --namespace=web-app
 
---------------------------------
+
 ----- k8s Dashboard deploy -----
 --------------------------------
 -Need to install for each Cluster.
@@ -33,6 +33,7 @@ Creating a sample user:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
 ----- Apply yaml -----
+=======================
 
 apiVersion: v1
 kind: ServiceAccount
@@ -53,33 +54,38 @@ subjects:
   namespace: kubernetes-dashboard
 
 ----- Get token  -----
+=======================
 kubectl -n kubernetes-dashboard create token admin-user
 
 ----- Start proxy -----
+=======================
 kubectl proxy
 #open another terminal
 
 ----- Open link and pust token -----
+=======================
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 
-
---------------------------------
 ----- Argo CD Deploy Windows -----
 --------------------------------
 
 ----- Execute Installation -----
+=======================
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 
 ----- Forward port  -----
+=======================
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 #open another terminal
 
 ----- Open Browser -----
+=======================
 localhost:8080
 
 To LogIn install CLI
+=======================
 
 echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
 $url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"
@@ -87,12 +93,8 @@ $output = "argocd.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $output
 
------ To get passworf for UI -----
+----- To get passworf for UI -----  
 argocd admin initial-password -n argocd
-admin
-'''XZl84LXGCUu5RiuX'''
-
-
 
 minikube addons enable ingress
 kubectl apply -f Main.yml
