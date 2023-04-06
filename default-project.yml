@@ -1,0 +1,25 @@
+# https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#projects
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project
+  namespace: argocd
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  # Проект не может быть удален до тех пор, пока к нему приаттачены какие-либо argocd приложения.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Example Project
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+  # Only permit applications to deploy to the guestbook namespace in the same cluster
+  # В какие ns и кластера можно деплоить
+  destinations:
+  - namespace: '*'
+    server: '*'
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  # Какие объекты кластерного уровня могут устанавливать argocd applications в рамках этого проекта 
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'

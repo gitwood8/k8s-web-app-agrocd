@@ -72,16 +72,14 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 ----- Execute Installation -----
 ----------------------
+
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 ----- Forward port  -----
 ----------------------
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 #open another terminal
-
------ Open Browser -----
-----------------------
 localhost:8080
 
 To LogIn install CLI
