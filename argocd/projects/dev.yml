@@ -8,7 +8,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: Project containing development environment services
+  description: PHP web app deployment
   sourceRepos:
     - '*'
   destinations:

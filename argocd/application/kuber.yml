@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kuber
+  name: web-app
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add this finalizer ONLY if you want these to cascade delete.
@@ -13,14 +13,14 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/bakavets/k8s-lessons.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: master  # For Helm, this refers to the chart version.
-    path: lesson-30/dev/kuber  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    repoURL: https://github.com/gitwood8/k8s-php-app-3 # Can point to either a Helm chart repo or a git repo.
+    targetRevision: main  # For Helm, this refers to the chart version. Branch or tag.
+    path: argocd/application  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: kuber
+    namespace: web-app
 
   # Sync policy
   syncPolicy:

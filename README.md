@@ -67,7 +67,7 @@ kubectl proxy
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 
------ Argo CD Deploy Windows -----
+----- Argo CD Deploy for Windows -----
 ==================================
 
 ----- Execute Installation -----
