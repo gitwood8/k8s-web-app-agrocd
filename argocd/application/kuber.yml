@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/gitwood8/k8s-php-app-3 # Can point to either a Helm chart repo or a git repo.
     targetRevision: main  # For Helm, this refers to the chart version. Branch or tag.
-    path: argocd/application  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    path: argocd/_deploy  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
   # Destination cluster and namespace to deploy the application
   destination:
