@@ -4,13 +4,13 @@ Status of Last Deployment:<br>
 <img src="https://github.com/gitwood8/k8s-php-app-1/workflows/***************/badge.svg?branch=main"><br>
 
 My hint:
-1. *Our deployment has been already started and now i change image and record it:*
-**kubectl set image deployment/php-app-v1 web-application-v1=wood8/myk8sphp_app:version2 -n web-app --record**
-**kubectl set image deployment/php-app-v1 web-application-v1=wood8/myk8sphp_app:latest -n web-app --record**
-2. *Show recorded history*
-**kubectl rollout history deployment/php-app-v1 -n web-app**
-3. *Rollout to previous version*
-**kubectl rollout undo deployment/php-app-v1 -n web-app --to-revision=3**
+1. *Our deployment has been already started and now i change image and record it:*  
+**kubectl set image deployment/php-app-v1 web-application-v1=wood8/myk8sphp_app:version2 -n web-app --record**  
+**kubectl set image deployment/php-app-v1 web-application-v1=wood8/myk8sphp_app:latest -n web-app --record**  
+2. *Show recorded history*  
+**kubectl rollout history deployment/php-app-v1 -n web-app**  
+3. *Rollout to previous version*  
+**kubectl rollout undo deployment/php-app-v1 -n web-app --to-revision=3**  
 
 Dont forget to launch ingress controller pod before run an ingress:
 *minikube enable addons ingress*
@@ -59,7 +59,7 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 ----- Start proxy -----
 ----------------------
-kubectl proxy
+kubectl proxy  
 #open another terminal
 
 ----- Open link and pust token -----
@@ -85,12 +85,12 @@ localhost:8080
 To LogIn install CLI
 ----------------------
 
-echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
-$url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"
-$output = "argocd.exe"
+echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name  
+$url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"  
+$output = "argocd.exe"  
 
 Invoke-WebRequest -Uri $url -OutFile $output
 
------ To get passworf for UI -----
+----- Get passworf for UI -----
 ----------------------
 argocd admin initial-password -n argocd
