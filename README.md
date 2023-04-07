@@ -72,7 +72,6 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 ----- Execute Installation -----
 ----------------------
-
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
@@ -84,7 +83,6 @@ localhost:8080
 
 To LogIn install CLI
 ----------------------
-
 echo $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name  
 $url = "https://github.com/argoproj/argo-cd/releases/download/v2.6.7/argocd-windows-amd64.exe"  
 $output = "argocd.exe"  
