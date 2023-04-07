@@ -1,7 +1,7 @@
 # k8s-web-app-agrocd
 
 Status of Last Deployment:<br>
-<img src="https://github.com/gitwood8/k8s-php-app-1/workflows/***************/badge.svg?branch=main"><br>
+#<img src="https://github.com/gitwood8/k8s-php-app-1/workflows/***************/badge.svg?branch=main"><br>
 
 My hint:
 1. *Our deployment has been already started and now i change image and record it:*  
