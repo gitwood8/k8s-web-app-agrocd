@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: web-application-v2
-        image: wood8/myk8sphp_app:latest
+        image: wood8/myk8sphp_app:version2
         ports:
         - containerPort: 80 #cause in image dockerfile expoded 80 port
 ---

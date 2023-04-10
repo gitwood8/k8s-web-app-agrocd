@@ -1,0 +1,33 @@
+eksctl create cluster --name qwerty --node-type t2.medium --nodes 2
+
+aws eks create-cluster --name qwerty \
+--version 1.20 \
+--nodegroup-name your-nodegroup-name \
+--node-type t2.medium \
+--nodes 2 \
+--ssh-access \
+--region your-region \
+--node-ami-id ami-0a91cd140a1fc148a \
+--node-ssh-key your-key-pair \
+--managed
+
+
+eksctl create cluster \
+--name qwerty \
+--nodegroup-name guns-n-roses \
+--node-type t2.medium \
+--nodes 2 \
+--ssh-access \
+--region eu-west-2 \
+--ssh-private-key /c/MyDesktop/ADV-IT/Key_ssh/wood8-key-london-2.pem
+
+ВОт тут эти имаджи указаны! Хуй найдешь что-то в этом амазоне!
+https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html
+
+/c/MyDesktop/ADV-IT/Key_ssh/wood8-key-london-2.pem
+
+
+      privateKeyPath: "C:\MyDesktop\ADV-IT\Key_ssh\wood8-key-london-2.pem"
+      privateKeyPath: C:/MyDesktop/ADV-IT/Key_ssh/wood8-key-london-2.pem
+
+eksctl utils validate-config --config-file=config.yml

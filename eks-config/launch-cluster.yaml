@@ -1,0 +1,16 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: wood8
+  region: eu-west-2
+
+nodeGroups:
+  - name: ng-123
+    instanceType: t2.medium
+    desiredCapacity: 2
+    volumeSize: 10
+    # ssh:
+    #   allow: true
+    #   privateKeyPath: 'C:\\MyDesktop\\ADV-IT\\Key_ssh\\wood8-key-london-2.pem'
